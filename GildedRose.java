@@ -6,17 +6,17 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
     }
-    
-    public ItemNameIs(name){
-        return items[i].name.equals(name);
+
+    public getName(i){
+        return items[i].name;
     }
     
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            if (!ItemNameIs("Aged Brie")
-                    && !ItemNameIs("Backstage passes to a TAFKAL80ETC concert")) {
+        for (int item = 0; item < items.length; item++) {
+            if (!getName(item).equals("Aged Brie")
+                    && !getName(item).equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items[i].quality > 0) {
-                    if (!ItemNameIs("Sulfuras, Hand of Ragnaros")) {
+                    if (!getName(item).equals("Sulfuras, Hand of Ragnaros")) {
                         items[i].quality--;
                     }
                 }
@@ -24,7 +24,7 @@ class GildedRose {
                 if (items[i].quality < 50) {
                     items[i].quality = ++;
 
-                    if (ItemNameIs("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (getName(item).equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].sellIn < 11) {
                             if (items[i].quality < 50) {
                                 items[i].quality++;
@@ -40,15 +40,15 @@ class GildedRose {
                 }
             }
 
-            if (!ItemNameIs("Sulfuras, Hand of Ragnaros")) {
+            if (!getName(item).equals("Sulfuras, Hand of Ragnaros")) {
                 items[i].sellIn--;
             }
 
             if (items[i].sellIn < 0) {
-                if (!ItemNameIs("Aged Brie")) {
-                    if (!ItemNameIs("Backstage passes to a TAFKAL80ETC concert")) {
+                if (!getName(item).equals("Aged Brie")) {
+                    if (!getName(item).equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].quality > 0) {
-                            if (!ItemNameIs("Sulfuras, Hand of Ragnaros")) {
+                            if (!IgetName(item).equals("Sulfuras, Hand of Ragnaros")) {
                                 items[i].quality--;
                             }
                         }
