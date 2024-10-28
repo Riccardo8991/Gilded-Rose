@@ -37,7 +37,7 @@ class GildedRose {
         }
         for(int i=0;i<incrementXtimes;i++){
             if (getQuality(item) < 50) {
-                  IncrementQuality(item);
+                  items[item].quality++;
             }
         }
     }
