@@ -24,14 +24,14 @@ class GildedRose {
     private IncrementQuality(item){
         items[item].quality++;
     }  
-    private IncrementTicketQuality(item){
+    private IncrementBackPassesQuality(item){
         int incrementXtimes=1;
         if (getSellIn(item) <= 10){
              incrementXtimes++;
+             if (getSellIn(item) <= 5){
+                 incrementXtimes++;
+            } 
         }  
-        if (getSellIn(item) <= 5){
-             incrementXtimes++;
-        } 
         for(int i=0;i<incrementXtimes;i++){
             if (getQuality(item) < 50) {
                   IncrementQuality(item);
@@ -55,9 +55,7 @@ class GildedRose {
     private setQualityToZero(item){
         items[item].quality=0;+
     }
-        
-
-    //if item is conjured, degrades in quality twice as fast
+    
     public void updateQuality() {
         for (int item = 0; item < items.length; item++) {
             if (!getName("Sulfuras, Hand of Ragnaros")) {
@@ -68,42 +66,12 @@ class GildedRose {
                     if (getSellIn(item) < 0) {
                         setQualityToZero(item);
                     } else {
-                        IncrementTicketQuality(item);
+                        IncrementBackPassesQuality(item);
                     } 
                 } else if (getName(item).equals("Aged Brie")){
                         IncrementQuality(item);
-                         
-                    else if (getName(item).equals("Backstage passes to a TAFKAL80ETC concert")) {
-                                if (getSellIn(item) < 11) {
-                                    if (getQuality(item) < 50) {
-                                        IncrementQuality(item);
-                                    }
-                                }
-        
-                                if (getSellIn(item) < 6) {
-                                    if (getQuality(item) < 50) {
-                                        IncrementQuality(item);
-                                    }
-                                }
-                            }
-                        }
-                         }
-                    }
-                    if (getSellIn(item) < 0) {
-                        if (!getName(item).equals("Aged Brie")) {
-                            if (!getName(item).equals("Backstage passes to a TAFKAL80ETC concert")) {
-                  
-                            } else {
-                                setQualityToZero(item);
-                            }
-                        } else {
-                            if (getQuality(item) < 50) {
-                                IncrementQuality(item);
-                            }
-                        }
-                    }
-                }
-
+                } 
+            }
         }
     }
 }
